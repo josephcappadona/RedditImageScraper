@@ -12,7 +12,21 @@ public class TypedImage {
 	 */
 	public TypedImage(byte[] response, String filetype) {
 		this.imgData = response;
-		this.filetype = parseImageType(filetype);
+		this.filetype = parseContentType(filetype);
+	}
+	
+	/**
+	 * Returns a content type as retrieved from a file map
+	 * of the given URL. Will be in the form "image/*" where
+	 * * represents the filetype (for example, "png", "jpeg",
+	 * or "gif".
+	 * 
+	 * @param url URL of the image that you want the file type of
+	 * @return String in the form "image/*"
+	 * @see TypedImage.parseContentType(String type)
+	 */
+	private static String getContentType(String url) {
+		return null;
 	}
 	
 	/**
@@ -25,7 +39,7 @@ public class TypedImage {
 	 * @return the three character image type that will be
 	 * 			used to save the image file
 	 */
-	private static String parseImageType(String type) {
+	private static String parseContentType(String type) {
 		return null;
 	}
 }

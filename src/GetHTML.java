@@ -30,6 +30,7 @@ public class GetHTML {
 		}
 		
 		String htmlText = html.toString();
+		///
 		System.out.println(htmlText);
 		String[] elts = htmlText.split(":");
 		String t = null;
