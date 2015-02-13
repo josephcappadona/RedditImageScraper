@@ -41,5 +41,4 @@ public class GetHTML {
 		}
 		System.out.println(t.replace("\\", ""));
 	}//8 to length-1
-
 }
