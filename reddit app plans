@@ -1,0 +1,39 @@
+ParseLink
+---------
+parseImgurPicture
+parseImgurAlbum
+parseFlickrPicture
+     return string of url
+
+SaveImage
+---------
+getImageFromURL
+     return Image w/ param PNG/GIF (maybe new class of Image)
+saveImageAs
+
+RetrieveURLs
+------------
+getRedditLinks
+   top, new, etc.
+    return arraylist of urls
+
+TypedImage
+-------------
+byte[] response
+String type
+String url
+
+
+gyfcat
+minus.com?
+
+**
+checking for duplicates, by metadata
+top posts /this month/
+Object... args
+	new could be # posts or Date
+
+
+customizable widgets
+	weather, sports scores, post it notes, traffic monitor, stock monitor, to do list, all at a glance (that can be developed for by users); you want people to come to facebook for more than to just see posts by their friends. sure they can subscribe to their favorite teams feeds, but the convenience of a dashboard-like area on the homepage to get news a a glance
+	draw up sketches in photoshop!

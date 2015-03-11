@@ -1,7 +1,12 @@
+import java.net.FileNameMap;
+import java.net.URLConnection;
+import java.util.Map;
+
 
 public class TypedImage {
-	byte[] imgData;
-	String filetype;
+	private byte[] imgData;
+	private String filetype;
+	private Map<String,String> properties;
 	
 	/**
 	 * @param response saves the image returned as the
@@ -10,23 +15,15 @@ public class TypedImage {
 	 * 					file map and parses it into a three
 	 * 					letter file type
 	 */
-	public TypedImage(byte[] response, String filetype) {
+	public TypedImage(byte[] response, String filetype, Map<String,String> properties) {
 		this.imgData = response;
-		this.filetype = parseContentType(filetype);
-	}
-	
-	/**
-	 * Returns a content type as retrieved from a file map
-	 * of the given URL. Will be in the form "image/*" where
-	 * * represents the filetype (for example, "png", "jpeg",
-	 * or "gif".
-	 * 
-	 * @param url URL of the image that you want the file type of
-	 * @return String in the form "image/*"
-	 * @see TypedImage.parseContentType(String type)
-	 */
-	private static String getContentType(String url) {
-		return null;
+		try {
+			this.filetype = parseContentType(filetype);
+		} catch (UnsupportedTypeException e) {
+			e.printStackTrace();
+			this.filetype = null;
+		}
+		this.properties = properties;
 	}
 	
 	/**
@@ -36,10 +33,46 @@ public class TypedImage {
 	 * 				file map in the form "image/*", where
 	 * 				* is the file type. The expected inputs
 	 * 				include "jpeg", "png", and "gif".
-	 * @return the three character image type that will be
+	 * @return the string of the image type that will be
 	 * 			used to save the image file
+	 * @throws UnsupportedTypeException 
 	 */
-	private static String parseContentType(String type) {
-		return null;
+	private static String parseContentType(String filetype) throws UnsupportedTypeException {
+		switch(filetype) {
+		case "image/gif":
+			return "gif";
+		case "image/jpeg":
+			return "jpeg";
+		case "image/png":
+			return "png";
+		case "image/tiff":
+			return "tiff";
+		default:
+			throw new UnsupportedTypeException();
+		}
+	}
+	
+	public String getURL() {
+		return properties.get("url");
+	}
+	
+	public String getTime() {
+		return properties.get("time");
+	}
+	
+	public String getID() {
+		return properties.get("id");
+	}
+	
+	public String getDomain() {
+		return properties.get("domain");
+	}
+	
+	public byte[] getImageData() {
+		return imgData;
+	}
+	
+	public String getFiletype() {
+		return filetype;
 	}
 }
