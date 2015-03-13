@@ -11,7 +11,7 @@ public final class ParseLink {
 	 */
 	private ParseLink() {}
 	
-	public static ArrayList<String> parseLink(String urlString, String domain) {
+	public static ArrayList<String> parseLink(String urlString, String domain) throws UnsupportedDomainException {
 		switch(domain) {
 		case "imgur.com":
 		case "i.imgur.com":
@@ -41,7 +41,7 @@ public final class ParseLink {
 			if(urlString.contains("i.imgur.com"))
 				directURL.add(urlString);
 			else
-				directURL.add(urlString.replace("imgur.com", "i.imgur.com"));
+				directURL.add(urlString.replace("imgur.com", "i.imgur.com").concat(".jpg"));
 			return directURL;
 		}
 	}

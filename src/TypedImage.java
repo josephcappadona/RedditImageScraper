@@ -9,14 +9,14 @@ public class TypedImage {
 	private Map<String,String> properties;
 	
 	/**
-	 * @param response saves the image returned as the
+	 * @param imgData saves the image returned as the
 	 * 					response of the URL stream
 	 * @param filetype takes the content type of the URL
 	 * 					file map and parses it into a three
 	 * 					letter file type
 	 */
-	public TypedImage(byte[] response, String filetype, Map<String,String> properties) {
-		this.imgData = response;
+	public TypedImage(byte[] imgData, String filetype, Map<String,String> properties) {
+		this.imgData = imgData;
 		try {
 			this.filetype = parseContentType(filetype);
 		} catch (UnsupportedTypeException e) {
@@ -37,7 +37,8 @@ public class TypedImage {
 	 * 			used to save the image file
 	 * @throws UnsupportedTypeException 
 	 */
-	private static String parseContentType(String filetype) throws UnsupportedTypeException {
+	private String parseContentType(String filetype) throws UnsupportedTypeException {
+		System.out.println(filetype);
 		switch(filetype) {
 		case "image/gif":
 			return "gif";

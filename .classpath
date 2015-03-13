@@ -14,6 +14,5 @@
 	<classpathentry kind="lib" path="jna-4.1.0.jar"/>
 	<classpathentry kind="lib" path="jna-platform-4.1.0.jar"/>
 	<classpathentry kind="lib" path="json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="reddit app plans"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

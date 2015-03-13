@@ -31,7 +31,7 @@ public class RetrieveURLs {
 	 * 					 /r/gifs, or /r/EarthPorn
 	 * @param postType see above
 	 * @param param see above
-	 * @return ArrayList of URLs
+	 * @return ArrayList<Map<String,String>> of URLs
 	 * @see java.util.Calendar
 	 */
 	public static ArrayList<Map<String,String>> getRedditLinks(String subreddit,
@@ -90,10 +90,12 @@ public class RetrieveURLs {
 			try {
 				JSONObject data = json.getJSONObject("data");
 				JSONArray b = (JSONArray) data.get("children");
-				lastID = data.get("after").toString();
+				lastID = data.getString("after");
+				System.out.println(url);
+				System.out.println(data.toString(4));
 				
 				for(int j=0; j<b.length(); j++) {
-					Map<String,String> properties = getPostData(data);
+					Map<String,String> properties = getPostData(b.getJSONObject(j).getJSONObject("data"));
 					count++;
 					pics.add(properties);
 					

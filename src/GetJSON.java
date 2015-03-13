@@ -42,7 +42,7 @@ public class GetJSON {
 			System.setProperty("http.agent", "Test by user EulersPhi");
 			url = new URL(urlPath);
 			connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestProperty( "User-Agent", "tests by EulersPhi");
+			connection.setRequestProperty("User-Agent", "tests by EulersPhi");
 			connection.setRequestMethod("GET");
 			connection.connect();
 			is = connection.getInputStream();
@@ -73,72 +73,6 @@ public class GetJSON {
 		
 		return null;
 	}
-	
-	/*
-	public static void makeHTTPPOSTRequest(String url, String api_type, String passwd, boolean rem, String username) {
-        try {
-        	HttpClient c = new DefaultHttpClient();        
-            HttpPost p = new HttpPost(url);    
-            
- 
-            p.setEntity(new StringEntity("{\"api_type\":\"" + api_type +
-            		"\",\"password\":\"" + passwd + 
-            		"\",\"rem\":\"" + rem + 
-            		"\",\"user\":\"" + username + "\"}", 
-                             ContentType.create("application/json")));
- 
-            HttpResponse r = c.execute(p);
- 
-            BufferedReader rd = new BufferedReader(new InputStreamReader(r.getEntity().getContent()));
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-               //Parse our JSON response               
-               //JSONParser j = new JSONParser();
-               //org.json.simple.JSONObject o = (org.json.simple.JSONObject) j.parse(line.toString());
-               
-               System.out.println(line);
-            }
-        }
-        catch(Exception e) {
-            System.out.println(e);
-        }                   
-    }    
-
-	public static void makeHTTPPOSTRequest1(String urlPath, String api_type, String passwd, Boolean rem, String username) {
-        try {
-        	URL url = new URL(urlPath);
-        	HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
-        	
-        	httpCon.setDoOutput(true);
-        	httpCon.setDoInput(true);
-        	httpCon.setUseCaches(false);
-        	
-        	httpCon.setRequestProperty( "User-Agent", "tests by EulersPhi" );
-        	httpCon.setRequestProperty("api_type", api_type);
-        	httpCon.setRequestProperty("passwd", passwd);
-        	httpCon.setRequestProperty("rem", rem.toString());
-        	httpCon.setRequestProperty("user", username);
-        	System.out.println("here");
-        	httpCon.setRequestProperty("Content-Length", "60");
-        	httpCon.setRequestMethod("POST");
-        	httpCon.connect();
-        	
-        	
-            BufferedReader rd = new BufferedReader(new InputStreamReader(httpCon.getInputStream(),"utf-8"));
-            String line = "";
-            while ((line = rd.readLine()) != null) {
-               //Parse our JSON response               
-               //JSONParser j = new JSONParser();
-               //org.json.simple.JSONObject o = (org.json.simple.JSONObject) j.parse(line.toString());
-               
-               System.out.println(line);
-            }
-        }
-        catch(Exception e) {
-            System.out.println(e);
-        }                   
-    }
-	*/
 	
 	public static void printJSONAtURL(String url, int n) {
 		try {
